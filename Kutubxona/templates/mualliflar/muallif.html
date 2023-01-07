@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Muallif {{muallif.ism}}</title>
+</head>
+<body>
+    <h1>Tanlangan muallifning ma'lumotlari:</h1>
+    <h3>Ismi: {{muallif.ism}}</h3>
+    {% if muallif.tirik %}
+    <h3>Tirik: ✅</h3>
+    {% else %}
+    <h3>Tirik: ❌</h3>
+    {% endif %}
+    <h3>Kitoblari soni: {{muallif.kitob_soni}}</h3>
+    <h3>Tug'ilgan sanasi: {{muallif.tugilgan_yil}}</h3>
+</body>
+</html>

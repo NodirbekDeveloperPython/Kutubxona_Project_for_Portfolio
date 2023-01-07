@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Barcha Recordlar</title>
+</head>
+<body>
+    <h1>Barcha Recordlarning ro'yhati:</h1>
+    <form action="/recordlar/" method="get">
+        <input type="text" name="q_soz" id="">
+        <button type="submit">Qidirish</button>
+    </form>
+    {% for record in recordlar %}
+    <br>
+        <p1>{{record.id}}. <a href="/record/{{record.id}}/">{{record}}</a></p1>
+        <button><a href="/record_tas_ochir/{{record.id}}/">O'chirish</a></button>
+        {% if record.qaytardi %}
+        {% else %}
+            <button><a href="/record_edit/{{record.id}}/">Tahrirlash</a></button>
+        {% endif %}
+    <br>
+    <br>
+    {% endfor %}
+    <br>
+    <br>
+    <br>
+    <hr>
+    <br>
+    <br>
+    <br>
+    <h2>Record qo'shish:</h2>
+    <form action="/recordlar/" method="post"> {% csrf_token %}
+        <label for="talaba">Talaba</label>
+        <select name="talaba" id="talaba">
+        {% for talaba in talabalar %}
+        <option value="{{talaba.id}}">{{talaba.ism}}</option>
+        {% endfor %}
+        </select>
+        <br>
+        <br>
+        <label for="kitobi">Kitob:</label>
+        <select name="kitob" id="kitobi">
+            {% for kitob in kitoblar %}
+            <option value="{{kitob.id}}">{{kitob.nom}}</option>
+            {% endfor %}
+        </select>
+        <br>
+        <br>
+        <label for="vaqti">Olingan vaqti:</label>
+        <input type="date" name="olingan_sana" id="vaqti">
+        <br>
+        <br>
+        <label for="qaytarilganmi">Qaytarilganmi:</label>
+        <input type="checkbox" name="qaytarilganmi" id="qaytarilganmi">
+        <br>
+        <br>
+        <label for="qaytgan_sana">Qaytargan sanasi</label>
+        <input type="date" name="qaytargan_sana" id="qaytgan_sana">
+        <br>
+        <br>
+<!--        {{ forma.as_p }}-->
+        <button type="submit">Qo'shish</button>
+    </form>
+    <br>
+    <br>
+    <br>
+    <hr>
+    <br>
+    <h2><a href="/bosh_sahifa/">Bosh Sahifa</a></h2>
+    <h2><a href="/mualliflar/">Mualliflar</a></h2>
+    <h2><a href="/talabalar/">Talabalar</a></h2>
+    <h2><a href="/kitoblar/">Kitoblar</a></h2>
+    <a href="/logout/"><button>Logout</button></a>
+
+</body>
+</html>

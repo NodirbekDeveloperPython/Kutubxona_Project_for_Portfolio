@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Barcha Kitoblar</title>
+</head>
+<body>
+    <h1>Barcha kitoblarning ro'yhati:</h1>
+    <form action="/kitoblar/" method="get">
+        <input type="text" placeholder="Qidirish ..." name="q_soz" id="">
+        <button type="submit">Qidirish</button>
+    </form>
+    {% for kitob in kitoblar %}
+    <br>
+        <p3>{{kitob.id}}. <a href="/kitob/{{kitob.id}}/">{{kitob.nom}}</a></p3>
+    <button><a href="/kitob_tas_ochir/{{kitob.id}}/">O'chirish</a></button>
+    <button><a href="/kitob_edit/{{kitob.id}}/">Tahrirlash</a></button>
+    <br>
+    <br>
+    {% endfor %}
+    <br>
+    <br>
+    <hr>
+    <br>
+    <br>
+    <h2>Kitob qo'shish:</h2>
+    <form action="/kitoblar/" method="post"> {% csrf_token %}
+<!--        <label for="nom">Kitobning nomi:</label>-->
+<!--        <input type="text" placeholder="Kitobning nomini kiriting ..." name="nom" id="nom">-->
+<!--        <br>-->
+<!--        <br>-->
+<!--        <label for="sahifa">Kitobning sahifasi:</label>-->
+<!--        <input type="number" placeholder="Kitobning sahifasini kiriting ..." name="sahifa" id="sahifa">-->
+<!--        <br>-->
+<!--        <br>-->
+<!--        <label for="janr">Kitobning janri:</label>-->
+<!--        <input type="text" placeholder="Kitobning janrini kiriting ..." name="janr" id="janr">-->
+<!--        <br>-->
+<!--        <br>-->
+<!--        <label for="muallif">Kitobning Muallifi:</label>-->
+<!--        <select name="muallif" id="muallif">-->
+<!--            {% for muallif in mualliflar %}-->
+<!--            <option value="{{muallif.id}}">{{muallif.ism}}</option>-->
+<!--            {% endfor %}-->
+<!--        </select>-->
+<!--        <br>-->
+<!--        <br>-->
+        {{forma.as_p}}
+        <button type="submit">Qo'shish</button>
+    </form>
+    <br>
+    <br>
+    <br>
+    <hr>
+    <br>
+    <h2><a href="/bosh_sahifa/">Bosh Sahifa</a></h2>
+    <h2><a href="/mualliflar/">Mualliflar</a></h2>
+    <h2><a href="/talabalar/">Talabalar</a></h2>
+    <h2><a href="/recordlar/">Recordlar</a></h2>
+    <a href="/logout/"><button>Logout</button></a>
+
+</body>
+</html>

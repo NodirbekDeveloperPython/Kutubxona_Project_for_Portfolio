@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Barcha Talabalar</title>
+</head>
+<body>
+    <h1>Barcha Talabalarning ro'yhati:</h1>
+    <form action="/talabalar/" method="get">
+        <input type="text" placeholder="Qidirish ..." name="q_soz" id="">
+        <button type="submit">Qidirish</button>
+    </form>
+    {% for talaba in talabalar %}
+    <br>
+        <p3>{{talaba.id}}. <a href="/talaba/{{talaba.id}}/">{{talaba.ism}}</a></p3>
+    <button><a href="/talaba_tas_ochir/{{talaba.id}}/">O'chirish</a></button>
+    <button><a href="/talaba_edit/{{talaba.id}}/">Tahrirlash</a></button>
+    <br>
+    <br>
+    {% endfor %}
+    <br>
+    <br>
+    <hr>
+    <br>
+    <br>
+    <h2>Talaba qo'shish:</h2>
+    <form action="/talabalar/" method="post"> {% csrf_token %}
+<!--        <label for="ism">Talabaning ismi:</label>-->
+<!--        <input type="text" placeholder="Talabaning ismini kiriting ..." name="ism" id="ism">-->
+<!--        <br>-->
+<!--        <br>-->
+<!--        <label for="jins">Talabaning jinsi:</label>-->
+<!--        <select name="jins" id="jins">-->
+<!--            <option value="Erkak">Erkak</option>-->
+<!--            <option value="Ayol">Ayol</option>-->
+<!--        </select>-->
+<!--        <br>-->
+<!--        <br>-->
+<!--        <label for="bitiruvchi">Talaba bitiruvchimi:</label>-->
+<!--        <input type="checkbox" name="bitiruvchi" id="bitiruvchi">-->
+<!--        <br>-->
+<!--        <br><label for="k_soni">Talabaning kitoblari soni:</label>-->
+<!--        <input type="number" placeholder="Talabaning kitoblari soni ..." name="k_soni" id="k_soni">-->
+<!--        <br>-->
+<!--        <br>-->
+        {{forma.as_p}}
+        <button type="submit">Qo'shish</button>
+    </form>
+    <br>
+    <br>
+    <br>
+    <hr>
+    <br>
+    <h2><a href="/bosh_sahifa/">Bosh Sahifa</a></h2>
+    <h2><a href="/mualliflar/">Mualliflar</a></h2>
+    <h2><a href="/kitoblar/">Kitoblar</a></h2>
+    <h2><a href="/recordlar/">Recordlar</a></h2>
+    <a href="/logout/"><button>Logout</button></a>
+</body>
+</html>

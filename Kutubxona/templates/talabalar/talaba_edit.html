@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Talaba {{talaba}}</title>
+</head>
+<body>
+    <h1>{{talaba}}ning ma'lumotlarini o'zgartirish:</h1>
+    <form action="/talaba_edit/{{talaba.id}}/" method="post"> {% csrf_token %}
+        <label for="ism">Talabaning ismi:</label>
+        <input type="text" value="{{talaba.ism}}" name="ism" id="ism">
+        <br>
+        <br>
+        <label for="jins">Talabaning jinsi:</label>
+        <select name="jins" id="jins">
+            <option value="{{talaba.jins}}">{{talaba.jins}}</option>
+            <option value="Erkak">Erkak</option>
+            <option value="Ayol">Ayol</option>
+        </select>
+        <br>
+        <br>
+        <label for="bitiruvchi">Talaba bitiruvchimi:</label>
+        {% if talaba.bitiruvchi %}
+          <input type="checkbox" checked="checked" name="bitiruvchi" id="bitiruvchi">
+        {% else %}
+          <input type="checkbox" name="bitiruvchi" id="bitiruvchi">
+        {% endif %}
+        <br>
+        <br><label for="k_soni">Talabaning kitoblari soni:</label>
+        <input type="number" value="{{talaba.kitob_soni}}" name="k_soni" id="k_soni">
+        <br>
+        <br>
+        <button type="submit">O'zgarishni Saqlash</button>
+    </form>
+
+</body>
+</html>

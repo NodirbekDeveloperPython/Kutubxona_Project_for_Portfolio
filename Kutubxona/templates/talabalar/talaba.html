@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Talaba {{talaba}}</title>
+</head>
+<body>
+    <h1>Talabaning batafsil ma'lumotlari:</h1>
+    <h3>Talabaning ismi: {{talaba.ism}}</h3>
+    <h3>Talabaning jinsi: {{talaba.jins}}</h3>
+    {% if talaba.bitiruvchi %}
+    <h3>Bitiruvchi talaba: ✔</h3>
+    {% else %}
+    <h3>Bitiruvchi talaba: ❌</h3>
+    {% endif %}
+    <h3>Talabaning kitoblari soni: {{talaba.kitob_soni}}</h3>
+</body>
+</html>

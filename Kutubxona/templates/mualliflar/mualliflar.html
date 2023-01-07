@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Barcha Mualliflar</title>
+</head>
+<body>
+    <h1>Barcha Mualliflar Ro'yhati:</h1>
+    <form action="/mualliflar/" method="get">
+        <input type="text" name="searching" id="Qidirish ...">
+        <button type="submit">Qidirish</button>
+    </form>
+    {% for i in mualliflar %}
+    <br>
+        <p1>{{i.id}}. <a href="/muallif/{{i.id}}/">{{i}}</a></p1>
+        <button><a href="/muallif_ochirish_tas/{{i.id}}/">O'chirish</a></button>
+        <button><a href="/muallif_edit/{{i.id}}/">Tahrirlash</a></button>
+    <br>
+    <br>
+    {% endfor %}
+    <br>
+    <br>
+    <br>
+    <hr>
+    <br>
+    <br>
+    <br>
+    <h2>Muallif qo'shish:</h2>
+    <form action="/mualliflar/" method="post"> {% csrf_token %}
+<!--        <label for="ism">Muallifning ismi:</label>-->
+<!--        <input type="text" name="m_ism" placeholder="Muallifning ismini kiriting ..." id="ism">-->
+<!--        <br>-->
+<!--        <br>-->
+<!--        <label for="tirikmi">Muallif tirikmi:</label>-->
+<!--        <input type="checkbox" name="tirik" id="tirikmi">-->
+<!--        <br>-->
+<!--        <br>-->
+<!--        <label for="kitobi">Muallifning kitoblari soni:</label>-->
+<!--        <input type="number" placeholder="Muallifning kitoblari sonini kiriting ..." name="k_soni" id="kitobi">-->
+<!--        <br>-->
+<!--        <br><label for="tirikmi">Muallif tug'ilgan sanasi:</label>-->
+<!--        <input type="date" name="t_yil" id="t_yil">-->
+<!--        <br>-->
+<!--        <br>-->
+        {{forma.as_p}}
+        <button type="submit">Qo'shish</button>
+    </form>
+    <br>
+    <br>
+    <br>
+    <hr>
+    <br>
+    <h2><a href="/bosh_sahifa/">Bosh Sahifa</a></h2>
+    <h2><a href="/talabalar/">Talabalar</a></h2>
+    <h2><a href="/kitoblar/">Kitoblar</a></h2>
+    <h2><a href="/recordlar/">Recordlar</a></h2>
+    <a href="/logout/"><button>Logout</button></a>
+
+</body>
+</html>

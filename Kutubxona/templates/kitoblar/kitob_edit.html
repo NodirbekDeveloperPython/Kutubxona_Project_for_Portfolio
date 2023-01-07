@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{kitob}} kitobi</title>
+</head>
+<body>
+    <h1>{{kitob}}ning ma'lumotlarini o'zgartirish:</h1>
+    <form action="/kitob_edit/{{kitob.id}}/" method="post"> {% csrf_token %}
+        <label for="nom">Kitobning nomi:</label>
+        <input type="text" value="{{kitob.nom}}" name="nom" id="nom">
+        <br>
+        <br>
+        <label for="sahifa">Kitobning sahifasi:</label>
+        <input type="number" value="{{kitob.sahifa}}" name="sahifa" id="sahifa">
+        <br>
+        <br>
+        <label for="janr">Kitobning janri:</label>
+        <input type="text" value="{{kitob.janr}}" name="janr" id="janr">
+        <br>
+        <br>
+        <label for="muallif">Kitobning Muallifi:</label>
+        <select name="muallif" id="muallif">
+            <option value="{{kitob.muallif.id}}">{{kitob.muallif.ism}}</option>
+            {% for muallif in mualliflar %}
+            <option value="{{muallif.id}}">{{muallif.ism}}</option>
+            {% endfor %}
+        </select>
+        <br>
+        <br>
+        <button type="submit">O'zgarishni Saqlash</button>
+    </form>
+
+</body>
+</html>

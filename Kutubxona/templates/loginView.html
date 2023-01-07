@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+</head>
+<body>
+    <br>
+    <br>
+    <br>
+    <h1>Kutubxonaga kirish:</h1>
+    <form action="/" method="post"> {% csrf_token %}
+      <label for="login">Loginingizni kiritish:</label>
+        <input type="text" placeholder="Login kiriting ..." name="login" id="login">
+
+        <label for="parol">Parolingizni kiriting:</label>
+        <input type="password" placeholder="Parolingizni kiriting ..." name="parol" id="parol">
+
+        <button type="submit">Kirish</button>
+    </form>
+</body>
+</html>

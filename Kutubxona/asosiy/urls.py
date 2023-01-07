@@ -1,0 +1,30 @@
+from django.contrib import admin
+from django.urls import path
+from .views import *
+urlpatterns = [
+    path('ad/', sinashga),
+    path('bosh_sahifa/', Bosh_sahifa),
+    path('register/', register),
+    path('', loginView),
+    path('logout/', logoutView),
+    path('mualliflar/', Mualliflar),
+    path('muallif/<int:pk>/', muallif),
+    path('muallif_edit/<int:pk>/', Muallif_edit),
+    path('muallif_ochirish_tas/<int:pk>/',Muallif_ochir_tas),
+    path('muallif_ochir/<int:pk>/', muallif_ochir),
+    path('kitoblar/', Kitoblar),
+    path('kitob/<int:pk>/', kitob),
+    path('kitob_edit/<int:pk>/', Kitob_edit),
+    path('kitob_tas_ochir/<int:pk>/', Kitob_tas_ochir),
+    path('kitob_ochir/<int:pk>/', Kitob_ochir),
+    path('recordlar/', Recordlar),
+    path('record/<int:pk>/', record),
+    path('record_edit/<int:pk>/', Record_edit),
+    path('record_tas_ochir/<int:pk>/', Record_tas_ochir),
+    path('record_ochir/<int:pk>/', Record_ochir),
+    path('talabalar/', Talabalar),
+    path('talaba/<int:pk>/', talaba),
+    path('talaba_edit/<int:pk>/', Talaba_edit),
+    path('talaba_tas_ochir/<int:pk>/', Talaba_tas_ochir),
+    path('talaba_ochir/<int:pk>/', Talaba_ochir),
+]

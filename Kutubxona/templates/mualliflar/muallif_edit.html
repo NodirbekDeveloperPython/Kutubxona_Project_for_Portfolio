@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Muallif {{muallif.ism}}</title>
+</head>
+<body>
+    <h1>{{muallif}}ning ma'lumotlarini o'zgartirish:</h1>
+    <form action="/muallif_edit/{{muallif.id}}/" method="post"> {% csrf_token %}
+        <label for="ism">Muallifning ismi:</label>
+        <input type="text" name="m_ism" value="{{muallif.ism}}" id="ism">
+        <br>
+        <br>
+        <label for="tirikmi">Muallif tirikmi:</label>
+        {% if muallif.tirik %}
+            <input type="checkbox" checked="checked" name="tirik" id="tirikmi">
+        {% else %}
+            <input type="checkbox" name="tirik" id="tirikmi">
+        {% endif %}
+        <br>
+        <br>
+        <label for="kitobi">Muallifning kitoblari soni:</label>
+        <input type="number" value="{{muallif.kitob_soni}}" name="k_soni" id="kitobi">
+        <br>
+        <br><label for="t_yil">Muallif tug'ilgan sanasi:</label>
+        <input type="date" name="t_yil" required="False" value="{{muallif.tugilgan_yil}}" id="t_yil">
+        <br>
+        <br>
+        <button type="submit">O'zgarishni Saqlash</button>
+    </form>
+</body>
+</html>

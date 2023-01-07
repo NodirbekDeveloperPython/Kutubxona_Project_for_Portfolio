@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Record {{record}}</title>
+</head>
+<body>
+    <h1>Tanlangan Record:</h1>
+    <h3>Kitob olgan talaba: {{record.student.ism}}</h3>
+    <h3>Talaba olgan kitob: {{record.kitob.nom}}</h3>
+    <h3>Kitob olingan vaqti: {{record.olingan_sana}}</h3>
+    {% if record.qaytardi %}
+        <h3>Kitob qaytarilgan: ✔</h3>
+    {% else %}
+        <h3>Kitob qaytarilmagan: ❌</h3>
+    {% endif %}
+    {% if record.qaytardi %}
+        <h3>Qaytargan sana: {{record.qaytargan_sana}}</h3>
+    {% else %}
+        <h3></h3>
+    {% endif %}
+</body>
+</html>
